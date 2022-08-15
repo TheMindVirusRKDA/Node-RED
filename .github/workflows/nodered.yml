@@ -57,7 +57,7 @@ jobs:
         run: |
           node-red &
 
-      # Obtain the DNS Public IP Address of the Instance (edge-based)
+      # Obtain the DNS Public IP Address of the Instance (edge-based, can't check locally, can't check running processes)
       - name: Obtain DNS Public IP Address
         run: |
           echo $(wget -qO- "https://cotahdd.synology.me/staging/dns")
@@ -65,5 +65,4 @@ jobs:
       # (Optional) Run while true loop to prevent instance shutdown on completion (ideally should be a running service)
       - name: Prevent Instance Shutdown
         run: |
-          sudo ps -al
           while true; do wait; done
