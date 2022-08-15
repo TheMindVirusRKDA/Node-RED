@@ -56,3 +56,8 @@ jobs:
       - name: Test Node-RED
         run: |
           node-red &
+
+      # Obtain the DNS Public IP Address of the Instance (edge-based)
+      - name: Obtain DNS Public IP Address
+        run: |
+          echo $(wget -qO- "https://cotahdd.synology.me/staging/dns")
