@@ -67,6 +67,12 @@ jobs:
         run: |
           echo $(wget -qO- "https://cotahdd.synology.me/staging/dns")
 
+      # (Optional) Check if the node-red service port is active or closed
+      - name: Check Port Forwarding
+        run: |
+          sudo apt-get install net-tools
+          netstat -nut
+
       # (Optional) Run while true loop to prevent instance shutdown on completion (ideally should be a running service)
       - name: Prevent Instance Shutdown
         run: |
