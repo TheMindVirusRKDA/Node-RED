@@ -40,3 +40,19 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get upgrade
+
+      # Install NodeJS and Node Package Manager (npm)
+      - name: Install NodeJS and npm
+        run: |
+          sudo apt-get install nodejs npm
+          node -v
+
+      # Install Node-RED with Node Package Manager (npm)
+      - name: Install Node-RED
+        run: |
+          sudo npm install -g --unsafe-perm node-red
+
+      # Test Node-RED in the Background (may have permissions and volatility issues)
+      - name: Test Node-RED
+        run: |
+          node-red &
