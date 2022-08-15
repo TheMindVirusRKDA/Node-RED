@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Node-RED CI
 
 # Controls when the workflow will run
 on:
@@ -38,5 +38,5 @@ jobs:
       # Updates and Upgrades Ubuntu Packages
       - name: Update and Upgrade
         run: |
-          sudo apt-get update,
+          sudo apt-get update
           sudo apt-get upgrade
