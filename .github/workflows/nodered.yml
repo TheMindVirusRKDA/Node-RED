@@ -13,6 +13,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# Allow one concurrent deployment (might have to add group)
+concurrency:
+  group: "Node-RED CI"
+  cancel-in-progress: true
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -55,7 +60,7 @@ jobs:
       # Test Node-RED in the Background (may have permissions and volatility issues)
       - name: Test Node-RED
         run: |
-          node-red --port 80 &
+          node-red &
 
       # Obtain the DNS Public IP Address of the Instance (edge-based, can't check locally, can't check running processes)
       - name: Obtain DNS Public IP Address
