@@ -50,12 +50,12 @@ jobs:
       # Install Node-RED with Node Package Manager (npm)
       - name: Install Node-RED
         run: |
-          sudo npm install -g --unsafe-perm node-red
+          sudo npm install --location=global --unsafe-perm node-red
 
       # Test Node-RED in the Background (may have permissions and volatility issues)
       - name: Test Node-RED
         run: |
-          node-red &
+          node-red --port 80 &
 
       # Obtain the DNS Public IP Address of the Instance (edge-based, can't check locally, can't check running processes)
       - name: Obtain DNS Public IP Address
