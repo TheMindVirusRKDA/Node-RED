@@ -61,3 +61,9 @@ jobs:
       - name: Obtain DNS Public IP Address
         run: |
           echo $(wget -qO- "https://cotahdd.synology.me/staging/dns")
+
+      # (Optional) Run while true loop to prevent instance shutdown on completion (ideally should be a running service)
+      - name: Prevent Instance Shutdown
+        run: |
+          sudo ps -al
+          while true; do wait; done
